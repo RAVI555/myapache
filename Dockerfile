@@ -1,0 +1,12 @@
+FROM ubuntu:12.04
+MAINTAINER Ravi version 1.0
+
+#RUN sudo apt-get update && sudo apt-get install -y apache2  && sudo apt-get clean && rm -rf /var/lib/apt/lists/*
+
+ENV APACHE_RUN_USER www-data
+ENV APACHE_RUN_GROUP www-data
+ENV APACHE_LOG_DIR /var/log/apache2
+
+EXPOSE 80
+
+CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
